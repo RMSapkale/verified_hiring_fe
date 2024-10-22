@@ -1,0 +1,12 @@
+<div class="education-details">
+    <h2>Educational Details</h2>
+    <app-educational-details></app-educational-details>
+    <ul>
+      <li *ngFor="let education of educationList">
+        <h3>{{ education.degree }}</h3>
+        <p>Institution: {{ education.institution }}</p>
+        <p>Year: {{ education.year }}</p>
+      </li>
+    </ul>
+  </div>
+  
