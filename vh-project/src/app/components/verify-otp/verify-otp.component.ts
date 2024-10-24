@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-verify-otp',
   templateUrl: './verify-otp.component.html',
@@ -8,15 +8,10 @@ import { Router } from '@angular/router';
 })
 export class VerifyOtpComponent {
   otp = '';
-
-  constructor(private router: Router) {}
-
+  constructor(private router: Router, private toastr: ToastrService) {}
   verifyOtp() {
-    if (this.otp === '1234') {
-      alert('OTP Verified!');
-      // Redirect to success page or dashboard here
-    } else {
-      alert('Invalid OTP!');
-    }
+    this.otp === '1234'
+      ? this.toastr.success('OTP Verified!', 'Success')
+      : this.toastr.error('Invalid OTP!', 'Error');
   }
 }

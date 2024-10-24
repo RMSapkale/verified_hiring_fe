@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,15 +9,12 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   email = '';
   password = '';
-
-  constructor(private router: Router) {}
-
+  constructor(private toastr: ToastrService) {}
   login() {
     if (this.email && this.password) {
-      alert('Login Successful!');
-      // this.router.navigate(['/verify-otp']);
+      this.toastr.success('Login Successful!', 'Success');
     } else {
-      alert('Invalid credentials');
+      this.toastr.error('Please enter valid credentials', 'Error');
     }
   }
 }
